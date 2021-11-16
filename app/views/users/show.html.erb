@@ -1,14 +1,13 @@
- <h1>bookers</h1>
 <%= render "layouts/profile", user: @user%>
 
 <div class="container py-5">
   <div class="row">
     <div class="col-lg-4 mr-3 my-5">
       <h2>New book</h2>
-      <%= render 'form', book: @book %>
+      <%= render 'books/form', book: @book %>
     </div>
     <div class="col-lg-7">
-      <% @books.each do |book| %>
+      <% @user.books.each do |book| %>
         <div class="card mb-3" style="max-width: 650px;">
           <div class="row no-gutters">
             <div class="col-4">
@@ -22,17 +21,15 @@
                 <p class="card-text"><%= book.body %></p>
                 <div class="row">
                   <div class="col-5">
-                    <p class="card-text"><%= link_to book.user.name, user_path(book.user_id) %></p>
+                    <p class="card-text"><%= @user.name %></p>
                   </div>
-                  <% if book.user_id == current_user.id %>
-                    <div class="col-7">
-                      <p class="card-text">
-                        <%= link_to 'Show', book, class: "show_#{book.id}" %></br>
-                        <%= link_to 'Edit', edit_book_path(book), class: "edit_#{book.id}" %></br>
-                        <%= link_to 'Destroy', book_path(book), method: :delete, data: { confirm: 'Are you sure?' }, class: "destroy_#{book.id}" %>
-                      </p>
-                    </div>
-                  <% end %>
+                  <div class="col-7">
+                    <p class="card-text">
+                      <%= link_to 'Show', book, class: "show_#{book.id}" %></br>
+                      <%= link_to 'Edit', edit_book_path(book), class: "edit_#{book.id}" %></br>
+                      <%= link_to 'Destroy', book_path(book), method: :delete, data: { confirm: 'Are you sure?' }, class: "destroy_#{book.id}" %>
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -42,7 +39,4 @@
     </div>
   </div>
 </div>
-
-
-
 

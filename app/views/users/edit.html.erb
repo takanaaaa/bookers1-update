@@ -1,0 +1,21 @@
+<h2>Edit</h2>
+
+<%= form_with model:@user, local:true do |f| %>
+  <div class="field py-3">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field py-3">
+    <%= f.attachment_field :profile_image %>
+  </div>
+
+  <div class="field py-3">
+    <%= f.label :profile %>
+    <%= f.text_area :profile_text %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
