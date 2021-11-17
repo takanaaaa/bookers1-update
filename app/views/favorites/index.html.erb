@@ -1,0 +1,9 @@
+<%= render "layouts/profile", user: @user%>
+
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <% if @favorite_list.present? %>
+      <%= render 'books/lists', books: @favorite_list %>
+    <% end %>
+  </div>
+</div>
