@@ -1,0 +1,21 @@
+<%= render "layouts/profile", user: @user %>
+<h2 class="my-3">search</h2>
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <table class="table">
+      <% if @range == '2' %>
+        <% @users.each do |user| %>
+          <tr>
+            <th><%= attachment_image_tag(user, :profile_image, fallback: "nophoto_thumbnail.png",size: "75x75")%></th>
+            <th><%= link_to user.name, user_path(user.id), class: "h5" %></th>
+            <th><p><%= simple_format user.profile_text %></p></th>
+          </tr>
+        <% end %>
+      <% else %>
+        <div class="col-5">
+          <%= render "books/lists", books: @books%>
+        </div>
+      <% end %>
+    </table>
+  </div>
+</div>

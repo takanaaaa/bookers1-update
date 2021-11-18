@@ -11,5 +11,15 @@ class Book < ApplicationRecord
     favorites.where(user_id: user.id).exists?
   end
 
+  def self.search(search, word)
+    if search == "partial_match"
+      @books = Book.where("name LIKE?", "%#{word}%")
+    elsif search == "perfect_match"
+      @books = Book.where("#{word}")
+    else
+      @books = Book.all
+    end
+  end
+
 
 end

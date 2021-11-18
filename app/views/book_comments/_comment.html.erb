@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <table class="table">
+      <% book.book_comments.each do |book_comment| %>
+        <tr>
+          <th class="h6"><%= book_comment.user.name %></th>
+          <th><p><%= simple_format book_comment.comment %></p></th>
+          <th>
+            <p><small><%= book_comment.created_at.strftime('%Y/%m/%d')%></small>
+            <% if book_comment.user == current_user %>
+                <%= link_to book_book_comment_path(book_id: @book, id: book_comment), method: :delete do %>
+                　<i class="far fa-trash-alt"></i></p>
+                <% end %>
+            <% end %>
+          </th>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
