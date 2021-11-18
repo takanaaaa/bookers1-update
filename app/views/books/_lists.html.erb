@@ -15,7 +15,8 @@
               <p class="card-text m-0"><%= link_to book.user.name, user_path(book.user_id) %></p>
             </div>
             <div class="col-4">
-              <%= render "favorites/favorite", book: book %></br>
+              <div id="favorite-btn_<%= book.id %>"><%= render "favorites/favorite", book: book %></br></div>
+
               コメント数:<%= book.book_comments.count %>
             </div>
             <% if user_signed_in? %>
