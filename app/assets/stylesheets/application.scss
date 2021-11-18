@@ -56,6 +56,12 @@ label {
 
 .field_with_errors {
   padding: 2px;
-  background-color: red;
+  background-color: #E84155;
   display: table;
+}
+
+#text-hidden {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

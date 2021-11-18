@@ -9,13 +9,14 @@
       <div class="col-8">
         <div class="card-body">
           <h5 class="card-title"><%= link_to book.title, book_path(book.id) %></h5>
-          <p class="card-text"><%= book.body %></p>
+          <p class="card-text", id="text-hidden"><%= book.body %></p>
           <div class="row">
-            <div class="col-4">
-              <p class="card-text mt-0"><%= link_to book.user.name, user_path(book.user_id) %></p>
-            </div>
             <div class="col-3">
-              <%= render "favorites/favorite", book: book%>
+              <p class="card-text m-0"><%= link_to book.user.name, user_path(book.user_id) %></p>
+            </div>
+            <div class="col-4">
+              <%= render "favorites/favorite", book: book %></br>
+              コメント数:<%= book.book_comments.count %>
             </div>
             <% if user_signed_in? %>
               <% if book.user_id == current_user.id %>

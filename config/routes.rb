@@ -11,5 +11,8 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update, :destroy] do
     resources :favorites, only: [:index]
   end
+  
+  post 'follow/:id' => 'relationships#create', as: 'follow'
+  post 'unfollow/:id' => 'relationships#destroy', as: 'unfollow'
 
 end

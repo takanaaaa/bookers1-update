@@ -1,6 +1,6 @@
 <h2>Edit</h2>
-
-<%= form_with model:@user, local:true do |f| %>
+  <%= render "layouts/errors", book: @user %>
+  <%= form_with model: @user, local:true do |f| %>
   <div class="field py-3">
     <%= f.label :name %>
     <%= f.text_field :name %>

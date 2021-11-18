@@ -1,9 +1,14 @@
-<h1>Editing Book</h1>
+<main>
+  <h1>Editing Book</h1>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <%= render 'newbook', book: @book %>
 
 
+    <%= link_to 'Show', @book, class: "show_#{@book.id}" %> |
+    <%= link_to 'Back', books_path, class: "back" %>
+  </div>
+</div>
 
-<%= render 'form', book: @book %>
-
-
-<%= link_to 'Show', @book, class: "show_#{@book.id}" %> |
-<%= link_to 'Back', books_path, class: "back" %>
+</main>

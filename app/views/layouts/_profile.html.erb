@@ -2,22 +2,31 @@
   <div class="card-body">
     <% if user_signed_in? %>
       <div class="row">
-        <div class="col-3">
+        <div class="col-sm-2">
           <%= attachment_image_tag(user, :profile_image, fallback: "nophoto_thumbnail.png",size: "75x75")%>
         </div>
-        <div class="col-3">
+        <div class="col-sm-3">
           user name :</br>
-          <%= link_to user.name, user_path(user.id) %>
+          <%= link_to user.name, user_path(user.id), class: "h5" %></br>
         </div>
-        <div class="col-3">
+        <div class="col-sm-3">
           profile :</br>
           <%= user.profile_text %>
         </div>
-        <% if current_user == user %>
-          <div class="col-3">
-            <%= link_to "edit", edit_user_path(user) %></br>
+        <div class="col-sm-3">
+          <div class="mb-2">
+            following:<%= user.following_user.count %> | follower:<%= user.follower_user.count %>
           </div>
-        <% end %>
+          <% if current_user == user %>
+              <%= link_to "edit", edit_user_path(user), type: "button", class: "btn btn-light" %></br>
+          <% else %>
+            <% if current_user.following?(user) %>
+              <%= link_to "unfollow", unfollow_path(user.id), method: :post, type: "button", class: "btn btn-light" %>
+            <% else %>
+              <%= link_to "follow", follow_path(user.id), method: :post, type: "button", class: "btn btn-outline-dark" %>
+            <% end %>
+          <% end %>
+        </div>
       </div>
     <% else %>
       <h5 class="fas fa-user-alt p-1">　guests</h5>
