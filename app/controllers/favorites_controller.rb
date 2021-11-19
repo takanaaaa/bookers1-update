@@ -2,7 +2,8 @@ class FavoritesController < ApplicationController
   def index
     @user = current_user
     favorites = Favorite.where(user_id: current_user.id).pluck(:book_id)
-    @favorite_list = Book.find(favorites)
+    @favorites = Kaminari.paginate_array(favorites).page(params[:page]).per(5)
+    @favorite_list = Book.find(@favorites)
   end
 
   def create

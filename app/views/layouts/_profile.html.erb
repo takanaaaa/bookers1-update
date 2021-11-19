@@ -5,13 +5,13 @@
         <div class="col-sm-2 py-2">
           <%= attachment_image_tag(user, :profile_image, fallback: "nophoto_thumbnail.png",size: "75x75")%>
         </div>
-        <div class="col-sm-3 py-2">
+        <div class="col-sm-2 py-2">
           user name :</br>
           <%= link_to user.name, user_path(user.id), class: "h5" %></br>
         </div>
-        <div class="col-sm-3 py-2">
-          profile :</br>
-          <%= user.profile_text %>
+        <div class="col-sm-4 py-2">
+          profile :
+          <%= simple_format user.profile_text, class: "m-0" %>
         </div>
         <div class="col-sm-3 py-2">
           <div class="mb-2">

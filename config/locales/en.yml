@@ -29,5 +29,10 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  hello: "Hello world"
+views:
+pagination:
+  first: <i class="fas fa-angle-double-left"></i>
+  last: <i class="fas fa-angle-double-right"></i>
+  previous: <i class="fas fa-angle-left"></i>
+  next: <i class="fas fa-angle-right"></i>
+  truncate: "..."

@@ -7,9 +7,12 @@
       <h2>New book</h2>
       <%= render 'newbook', book: @book %>
     </div>
-    <div class="col-lg-8">
+    <div class="col-md-8">
       <%= render 'books/lists', books: @books %>
     </div>
+  </div>
+  <div class="row justify-content-center">
+    <%= paginate @books %>
   </div>
 </div>
 
